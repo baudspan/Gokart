@@ -11,7 +11,7 @@ let playerLaps = 0;
 let leaderboard = [];
 let gameEnded = false;
 let bgMusic;
-
+let trackImg;
 FILL(255);
 textSize(16);
 text("Use Arrow Keys: ↑ Forward, ← Left, → Right", 20, 100);
@@ -20,7 +20,7 @@ text("Use Arrow Keys: ↑ Forward, ← Left, → Right", 20, 100);
 function preload() {
   trackImg = loadImage('assets/4 (2).png');
   playerImg = loadImage('assets/1gokart.png');
- let trackImg;
+ 
 
   for (let i = 0; i < 4; i++) {
     botImgs[i] = loadImage(`assets/bot${i}.png`);
