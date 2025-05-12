@@ -56,8 +56,8 @@ function drawTrack() {
   }
 
   // Center the image on the canvas
-  let x = (width - drawWidth) / 2;
-  let y = (height - drawHeight) / 2;
+  let x = (width - drawWidth) / 7;
+  let y = (height - drawHeight) / 5;
 
   image(trackImg, x, y, drawWidth, drawHeight);
 }
