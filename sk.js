@@ -25,39 +25,9 @@ function preload() {
 function preload() {
   trackImg = loadImage('assets/4.png');
 }
-
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-  drawTrack();
-}
-
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-  drawTrack();
-}
-
-function drawTrack() {
-  background(0);
-
-  // Calculate scale to preserve aspect ratio
-  let imgAspect = trackImg.width / trackImg.height;
-  let canvasAspect = width / height;
-
-  let drawWidth, drawHeight;
-
-  if (canvasAspect > imgAspect) {
-    // Canvas is wider than image — match height, scale width
-    drawHeight = height;
-    drawWidth = trackImg.width * (height / trackImg.height);
-  } else {
-    // Canvas is taller — match width, scale height
-    drawWidth = width;
-    drawHeight = trackImg.height * (width / trackImg.width);
-  }
-
   // Center the image on the canvas
-  let x = (width - drawWidth) / 7;
-  let y = (height - drawHeight) / 5;
+  let x = (width - drawWidth) / -4;
+  let y = (height - drawHeight) / -6;
 
   image(trackImg, x, y, drawWidth, drawHeight);
 }
