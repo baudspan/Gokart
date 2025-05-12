@@ -241,6 +241,8 @@ function drawBots() {
 }
 
 function checkOffTrackCollision() {
+  loadPixels(); 
+
   let points = [
     { x: car.x, y: car.y },
     { x: car.x + cos(car.angle) * (car.width / 2), y: car.y + sin(car.angle) * (car.width / 2) },
@@ -255,11 +257,11 @@ function checkOffTrackCollision() {
 
     if (px < 0 || px >= width || py < 0 || py >= height) continue;
 
-    let c = get(px, py);
-    let brightness = (c[0] + c[1] + c[2]) / 3;
+    let c = get(px, py); // [r, g, b, a]
 
-    if (brightness >200) {
-      alert("Game Over: You hit the track boundary!");
+    // Stay only on black (0,0,0); any deviation is off-track
+    if (!(c[0] === 0 && c[1] === 0 && c[2] === 0)) {
+      alert("Game Over: You went off the black track!");
       noLoop();
       return;
     }
