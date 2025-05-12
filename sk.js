@@ -20,7 +20,48 @@ text("Use Arrow Keys: ↑ Forward, ← Left, → Right", 20, 100);
 function preload() {
   trackImg = loadImage('assets/4.png');
   playerImg = loadImage('assets/1gokart.png');
- 
+ let trackImg;
+
+function preload() {
+  trackImg = loadImage('assets/4.png');
+}
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  drawTrack();
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  drawTrack();
+}
+
+function drawTrack() {
+  background(0);
+
+  // Calculate scale to preserve aspect ratio
+  let imgAspect = trackImg.width / trackImg.height;
+  let canvasAspect = width / height;
+
+  let drawWidth, drawHeight;
+
+  if (canvasAspect > imgAspect) {
+    // Canvas is wider than image — match height, scale width
+    drawHeight = height;
+    drawWidth = trackImg.width * (height / trackImg.height);
+  } else {
+    // Canvas is taller — match width, scale height
+    drawWidth = width;
+    drawHeight = trackImg.height * (width / trackImg.width);
+  }
+
+  // Center the image on the canvas
+  let x = (width - drawWidth) / 2;
+  let y = (height - drawHeight) / 2;
+
+  image(trackImg, x, y, drawWidth, drawHeight);
+}
+
 
 
   for (let i = 0; i < 4; i++) {
