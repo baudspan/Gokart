@@ -22,18 +22,6 @@ function preload() {
   playerImg = loadImage('assets/1gokart.png');
  let trackImg;
 
-function preload() {
-  trackImg = loadImage('assets/4.png');
-}
-  // Center the image on the canvas
-  let x = (width - drawWidth) / -4;
-  let y = (height - drawHeight) / -6;
-
-  image(trackImg, x, y, drawWidth, drawHeight);
-}
-
-
-
   for (let i = 0; i < 4; i++) {
     botImgs[i] = loadImage(`assets/bot${i}.png`);
   }
